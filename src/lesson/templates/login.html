@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>课程选课系统</title>
+</head>
+<body>
+
+{% extends 'index.html' %}
+ 
+{% block content %}
+ 
+<div>
+        <form action="{{request.path}}" method="POST">
+        {% csrf_token %}
+
+
+        用户名：<input type="text" name="username"/><br>
+        密   码：<input type="password" name="password"/><br>
+
+        <input type="submit" value="登录">
+
+    
+    </form>
+ 
+</div>
+ 
+{% endblock %}
+</body>
+</html>

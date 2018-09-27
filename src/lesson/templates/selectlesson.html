@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>选择你的选修课</title>
+</head>
+<body>
+<form action="" method="POST">
+    {% csrf_token %}
+    欢迎您  {{ name }} 同学
+	<table>
+	<thead>
+	<tr>
+		<th>课程名称</th>
+		<th>任课教师</th>
+		<th>课程类型</th>
+		<th>上课教室</th>
+		<th>上课时间</th>
+		<th>起始周</th>
+		<th>剩余数量</th>
+		<th>是否选课</th>		
+	</tr>
+	</thead>
+	<tbody>
+	{% for lessonlist in lessonlists %}
+	<tr>
+		<td>{{lessonlist.lessonname}}</td>
+		<td>{{lessonlist.teacher}}</td>
+		<td>{{lessonlist.lessontype}}</td>
+		<td>{{lessonlist.classroom}}</td>
+		<td>{{lessonlist.time}}</td>
+		<td>{{lessonlist.week}}</td>
+		<td>{{lessonlist.quantity}}</td>
+		<td><input type="checkbox" value="{{lessonlist}}" name="check_box_list"/><td>
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+			<input type="submit" value="确认选课">
+			<a class="button-success pure-button" href="/managelesson/">管理已选课程</a>
+	<script>
+		function autoCheck(name,limit){
+			   var cks = document.getElementsByName(name);
+			    function check() {
+			        var checkedNum = 0;
+			        for (var i = 0,len = cks.length; i < len ;i++) {
+			            if(cks[i].checked) checkedNum++;
+			            if(checkedNum > limit) {
+			                return false;
+			            }    
+			        }
+			        return true;
+			   }
+			    for (var i = 0,len = cks.length; i < len ;i++) {
+			        cks[i].onclick = function (){
+			            if(!check()){  
+			                alert("一个学期最多选择"+limit+"门课");  
+			                this.checked = false;  
+			            }  
+			        }
+			    } 
+			};
+			autoCheck("check_box_list",2);
+	</script>
+</body>
+</html>

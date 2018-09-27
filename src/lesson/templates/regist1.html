@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body topmargin="100" leftmargin="150">
+{% extends 'index.html' %}
+ 
+{% block content %}
+    <form action="" method="POST">
+    {% csrf_token %}
+         学号： <input type="text" name="username"/>
+        <P>输入密码： <input type="password" name="password" id="pw1" onkeyup="validate()"/></P>
+        <p>确认密码： <input type="password" name="repassword" id="pw2" onkeyup="validate()"/><span id="tishi"></span></p>
+        <p>姓名：<input type="text" name="name" /></p>
+        <p>班级：<input type="text" name="class_name" /></p>
+        <p><input type="submit" value="注册" id="submit"/>
+        <input type="reset" value="重置"/></p>
+    </form> 
+    <script>
+          function validate() {
+              var pw1 = document.getElementById("pw1").value;
+              var pw2 = document.getElementById("pw2").value;
+              if(pw1 == pw2 && pw1 != "") {
+                  document.getElementById("tishi").innerHTML="<font color='green'>两次密码相同</font>";
+                  document.getElementById("submit").disabled = false;
+              }
+              else {
+                  document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>";
+                  document.getElementById("submit").disabled = true;
+              }
+          }
+      </script>
+ 
+{% endblock %}
+</body>
+</html>
