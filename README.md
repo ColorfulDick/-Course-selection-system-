@@ -1,5 +1,15 @@
 # -Course-selection-system-
 一个基于python3.6+Django2.0+xadmin的选课系统
+2019.03.28更新：
+登录和注册页面增加了验证码，并且注册页面增加了验证两次输入密码是否一致以及邮箱格式是否正确的js函数
+![image](https://github.com/ColorfulDick/-Course-selection-system-/blob/master/%E7%99%BB%E5%BD%95.jpg)
+![image](https://github.com/ColorfulDick/-Course-selection-system-/blob/master/%E6%B3%A8%E5%86%8C.jpg)
+登录界面增加了通过邮箱找回密码的功能
+![image](https://github.com/ColorfulDick/-Course-selection-system-/blob/master/%E6%89%BE%E5%9B%9E%E5%AF%86%E7%A0%81.jpg)
+![image](https://github.com/ColorfulDick/-Course-selection-system-/blob/master/%E6%94%B6%E4%BB%B6%E6%83%85%E5%86%B5.jpg)
+选课界面增加了视频试看功能
+![image](https://github.com/ColorfulDick/-Course-selection-system-/blob/master/%E9%80%89%E8%AF%BE%E6%83%85%E5%86%B5.jpg)
+----------------------------------------------------
 教师管理界面，可以添加课程信息、查看学生信息、查看学生选课信息：
 ![image](https://github.com/ColorfulDick/-Course-selection-system-/blob/master/360%E6%88%AA%E5%9B%BE-6001046.jpg)
 学生用前端界面，可以注册登录、选课、移除已选课程：
