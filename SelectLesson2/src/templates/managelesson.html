@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>管理已选课程</title>
+</head>
+<body>
+<form action="" method="POST">
+    {% csrf_token %}
+    欢迎您  {{ name }} 同学
+	<table>
+	<thead>
+	<tr>
+		<th>课程名称</th>
+		<th>课程类型</th>
+		<th>任课教师</th>
+		<th>上课教室</th>
+		<th>上课时间</th>
+		<th>起始周</th>	
+	</tr>
+	</thead>
+	<tbody>
+	{% for managelist in managelists %}
+	<tr>
+		<td>{{managelist.rlessonname}}</td>
+		<td>{{managelist.rlessontype}}
+		<td>{{managelist.rteacher}}</td>
+		<td>{{managelist.rclassroom}}</td>
+		<td>{{managelist.rtime}}</td>
+		<td>{{managelist.rweek}}</td>
+		<td><input type="checkbox" value="{{managelist}}" name="check_box_list"/><td>
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+			<input type="submit" value="移除课程">
+</body>
+</html>

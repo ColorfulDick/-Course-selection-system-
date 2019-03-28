@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>课程选课系统</title>
+</head>
+<body>
+
+{% extends 'index.html' %}
+ 
+{% block content %} 
+<div>
+    <form action="{{request.path}}" method="POST">
+        {% csrf_token %}
+
+        用户名：<input type="text" name="username"/><br>
+        密    码：<input type="password" name="password"/><br>
+        验证码：<input type="text" name="valid_code"/><br>
+       <img id="valid-img" class="valid-img" src="/get_valid_img.png?" alt=""><br>
+		<a class="button-success pure-button" href="/forget/">忘记密码？</a>
+        <input type="submit" value="登录"><br>    
+    </form> 
+</div>
+{% if messages %}
+        <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+        </script>
+    {% endif %}
+       
+{% endblock %}
+</body>
+</html>
